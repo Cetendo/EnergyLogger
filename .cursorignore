@@ -1,0 +1,6 @@
+# Sensitive configuration files
+config.json
+
+# Other sensitive files you want to hide from Cursor
+.env
+secrets.json 

@@ -1,0 +1,13 @@
+{
+  "heatpump": {
+    "ip_address": "xxx.xxx.xxx.xxx",
+    "pin": "xxxx"
+  },
+  "solar_panel": {
+    "ip_address": "xxx.xxx.xxx.xxx"
+  },
+  "settings": {
+    "connection_timeout": 30,
+    "retry_attempts": 3
+  }
+} 
