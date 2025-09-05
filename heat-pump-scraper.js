@@ -70,12 +70,12 @@ class EnergyLogger {
         const categoryData = this.collectCategoryData(filteredSections);
         
         // Save to database as complete snapshots
-        const savedCount = this.db.saveSnapshotData(categoryData);
-        if (savedCount > 0) {
-            this.totalReadingsSaved += savedCount;
+        const saveResult = this.db.saveSnapshotData(categoryData);
+        if (saveResult.snapshots > 0) {
+            this.totalReadingsSaved += saveResult.snapshots;
             const now = Date.now();
             if (now - this.lastSaveTime > 30000) { // Log every 30 seconds max
-                console.log(`📊 Database: ${savedCount} category snapshots saved (Total: ${this.totalReadingsSaved})`);
+                console.log(`📊 Database: snapshot (${saveResult.categories} categories) saved (Total: ${this.totalReadingsSaved})`);
                 this.lastSaveTime = now;
             }
         }

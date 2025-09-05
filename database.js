@@ -179,48 +179,52 @@ class EnergyDatabase {
 
     saveSnapshotData(categoryData) {
         const timestamp = Math.floor(Date.now() / 1000);
-        let savedCount = 0;
+        let savedCategories = 0;
 
         try {
             for (const [category, data] of Object.entries(categoryData)) {
                 switch (category) {
                     case 'Temperaturen':
                         this.saveTemperaturen(timestamp, data);
-                        savedCount++;
+                        savedCategories++;
                         break;
                     case 'Eingänge':
                         this.saveEingaenge(timestamp, data);
-                        savedCount++;
+                        savedCategories++;
                         break;
                     case 'Ausgänge':
                         this.saveAusgaenge(timestamp, data);
-                        savedCount++;
+                        savedCategories++;
                         break;
                     case 'Abschaltungen':
                         this.saveAbschaltungen(timestamp, data);
-                        savedCount++;
+                        savedCategories++;
                         break;
                     case 'Anlagenstatus':
                         this.saveAnlagenstatus(timestamp, data);
-                        savedCount++;
+                        savedCategories++;
                         break;
                     case 'Energiemonitor':
                         if (data['Wärmemenge']) {
                             this.saveEnergiemonitorWaermemenge(timestamp, data['Wärmemenge']);
-                            savedCount++;
+                            savedCategories++;
                         }
                         if (data['Leistungsaufnahme']) {
                             this.saveEnergiemonitorLeistungsaufnahme(timestamp, data['Leistungsaufnahme']);
-                            savedCount++;
+                            savedCategories++;
                         }
                         break;
                 }
             }
         } catch (error) {
             console.error('Error saving snapshot data:', error);
+            return { snapshots: 0, categories: 0 };
         }
 
-        return savedCount;
+        return { 
+            snapshots: savedCategories > 0 ? 1 : 0, 
+            categories: savedCategories 
+        };
     }
 
     saveTemperaturen(timestamp, data) {
