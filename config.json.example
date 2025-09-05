@@ -1,13 +1,26 @@
 {
   "heatpump": {
     "ip_address": "xxx.xxx.xxx.xxx",
-    "pin": "xxxx"
+    "import_values": {
+      "Temperaturen": {},
+      "Eingänge": {},
+      "Ausgänge": {},
+      "Betriebszeit": {
+        "exclude": ["Betriebstunden ZWE1"]
+      },
+      "Abschaltungen": {},
+      "Anlagenstatus": {
+        "include": ["Bivalenz Stufe", "Heizleistung Ist", "Leistungsaufnahme"]
+      },
+      "Energiemonitor": {}
+    }
   },
   "solar_panel": {
     "ip_address": "xxx.xxx.xxx.xxx"
   },
   "settings": {
     "connection_timeout": 30,
-    "retry_attempts": 3
+    "retry_attempts": 3,
+    "update_interval": 5
   }
 } 

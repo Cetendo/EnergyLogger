@@ -1,21 +1,10 @@
 # Configuration files
 config.json
 
-# Logs
-*.log
+energy.db
 
 # Dependencies
 /node_modules
 
-# Environment variables
-.env
-
 # IDE specific files
 .vscode/
-.idea/
-*.swp
-*.swo
-
-# OS specific files
-.DS_Store
-Thumbs.db 

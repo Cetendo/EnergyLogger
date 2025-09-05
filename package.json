@@ -1,5 +1,15 @@
 {
+  "name": "energy-logger",
+  "version": "1.0.0",
+  "description": "Energy monitoring system for heat pump and solar panel data",
+  "main": "heat-pump-scraper.js",
+  "scripts": {
+    "start": "node heat-pump-scraper.js",
+    "scraper": "node heat-pump-scraper.js"
+  },
   "dependencies": {
-    "puppeteer": "^24.0.0"
+    "better-sqlite3": "^12.2.0",
+    "ws": "^8.18.3",
+    "xml2js": "^0.6.2"
   }
 }
